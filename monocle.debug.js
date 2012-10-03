@@ -1,5 +1,5 @@
 /*
-    Monocle 0.9.1
+    Monocle 0.9.2
     http://monocle.tapquo.com
 
     Copyright (C) 2011,2012 Javi Jiménez Villar (@soyjavi)
@@ -201,8 +201,6 @@
 
     Model.attributes = [];
 
-    Model.uid_counter = 0;
-
     Model.configure = function() {
       var attributes;
       attributes = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
@@ -226,10 +224,7 @@
       if (prefix == null) {
         prefix = 'c-';
       }
-      uid = prefix + this.uid_counter++;
-      if (this.exists(uid)) {
-        uid = this.uid(prefix);
-      }
+      uid = guid();
       return uid;
     };
 
