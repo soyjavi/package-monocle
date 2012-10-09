@@ -1,5 +1,5 @@
 /*
-    Monocle 0.9.2
+    Monocle 0.9.3
     http://monocle.tapquo.com
 
     Copyright (C) 2011,2012 Javi Jiménez Villar (@soyjavi)
@@ -201,7 +201,7 @@
 
     Model.attributes = [];
 
-    Model.configure = function() {
+    Model.fields = function() {
       var attributes;
       attributes = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
       this.records = {};
@@ -556,7 +556,11 @@
 
     __extends(View, _super);
 
-    View.container = null;
+    View.container = void 0;
+
+    View.template = void 0;
+
+    View.model = void 0;
 
     function View(options) {
       View.__super__.constructor.apply(this, arguments);
@@ -589,15 +593,13 @@
     };
 
     View.prototype.remove = function() {
-      var elements;
-      elements = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-      this.item.destroy();
+      this.model.destroy();
       return this.el.remove();
     };
 
     View.prototype.refresh = function() {
       var render;
-      render = Mustache.render(this.template, this.item);
+      render = Mustache.render(this.template, this.model);
       return this.replace(render);
     };
 
