@@ -1,7 +1,7 @@
 {
   "name": "monocle",
   "description": "Build awesome CoffeeScript MVC Apps",
-  "version": "0.9.6",
+  "version": "1.0.0",
   "homepage": "http://monocle.tapquo.com",
   "main": ["./monocle.js"],
   "keywords": [ "quojs" ],
