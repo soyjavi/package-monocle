@@ -1,5 +1,5 @@
 /*
-    Monocle 1.0.0
+    Monocle 1.0.1
     http://monocle.tapquo.com
 
     Copyright (C) 2011,2012 Javi Jiménez Villar (@soyjavi)
@@ -22,7 +22,6 @@
     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
     DEALINGS IN THE SOFTWARE.
 */
-
 
 (function() {
   var Events, Module, Monocle, moduleKeywords,
@@ -156,7 +155,7 @@
 
   Monocle = this.Monocle = {};
 
-  Monocle.version = "0.9.4";
+  Monocle.version = "1.0.1";
 
   Monocle.Events = Events;
 
@@ -656,7 +655,7 @@
     View.prototype.replace = function(element) {
       var previous, _ref;
       _ref = [this.el, Monocle.Dom(element.el || element)], previous = _ref[0], this.el = _ref[1];
-      previous.replaceWith(this.el[0]);
+      previous.replaceWith(typeof $$ !== "undefined" && $$ !== null ? this.el[0] : this.el);
       this.delegateEvents(this.events);
       this.refreshElements();
       return this.el;
@@ -682,7 +681,7 @@
       })();
       render = Monocle.templayed(this.template).apply(null, elements);
       this.replace(render);
-      this.container[method](this.el[0]);
+      this.container[method](typeof $$ !== "undefined" && $$ !== null ? this.el[0] : this.el);
       return this;
     };
 
