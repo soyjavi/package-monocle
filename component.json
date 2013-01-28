@@ -8,6 +8,7 @@
     "site": "http://twitter.com/soyjavi"},
   "main": ["./monocle.js"],
   "keywords": [ "monocle", "mvc", "framework", "jquery", "zepto", "quojs" ],
+  "dependencies": {"quojs": "latest"},
   "license": [{
     "type": "MIT"
   }]
